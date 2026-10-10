@@ -1,9 +1,0 @@
-class_name,title,description,due_date,max_score,type
-Starters A1,Unit 1 vocabulary,Complete the vocabulary exercises for unit 1.,2026-09-18 23:59:00+00,10,assignment
-Starters A1,Unit 2 exam,Written test covering units 1 and 2.,2026-10-02 10:00:00+00,100,exam
-Movers A2,Unit 3 reading,Read the short story and answer the questions.,2026-09-25 23:59:00+00,10,assignment
-Movers A2,Unit 4 grammar,Past simple worksheet.,2026-10-06 23:59:00+00,10,assignment
-Flyers B1,Essay: my hometown,Write 150 words about your hometown.,2026-09-22 23:59:00+00,10,assignment
-Flyers B1,Midterm exam,"Reading, writing and grammar midterm.",2026-10-01 09:30:00+00,100,exam
-Prep B2,Listening log week 5,Fill in the listening log for week 5.,2026-09-29 23:59:00+00,10,assignment
-Prep B2,Debate preparation,Prepare arguments for Friday's debate.,2026-10-14 23:59:00+00,10,assignment
