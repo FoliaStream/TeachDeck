@@ -2,4 +2,4 @@
 .env
 
 # Local
-_local/
+local/
