@@ -10,6 +10,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
+
 engine = create_engine(os.environ['DATABASE_URL'])
 
 

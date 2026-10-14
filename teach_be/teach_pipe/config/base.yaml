@@ -1,0 +1,26 @@
+# # //////////////////////////////////////////////////////
+#                     GENERAL INPUT 
+# ////////////////////////////////////////////////////////
+
+
+# -----------------------
+#         CASE 
+# -----------------------
+
+# specific selection / request
+dbtable : &dbtable None
+
+# -----------------------
+#         BASE 
+# -----------------------
+
+# --- OUT PATHS ---
+out_csv_path : "./output/csv/"
+out_fig_path : "./output/fig/"
+
+# --- API ---
+api_url : "http://127.0.0.1:5000"
+
+# --- DELETE COLUMNS ---
+del_cols : 
+  - "password_hash"
