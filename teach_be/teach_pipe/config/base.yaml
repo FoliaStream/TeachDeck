@@ -15,8 +15,8 @@ dbtable : &dbtable None
 # -----------------------
 
 # --- OUT PATHS ---
-out_csv_path : "./output/csv/"
-out_fig_path : "./output/fig/"
+out_csv_path : "./teach_be/output/csv/"
+out_fig_path : "./teach_be/output/fig/"
 
 # --- API ---
 api_url : "http://127.0.0.1:5000"

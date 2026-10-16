@@ -24,11 +24,19 @@ class PipelineFlow(PipelineBase):
 
         s = self.config
 
-        # Step . Fetch Table
-        self.call_fetch_table(
-            table_name = str(s.dbtable),
-            out_path=str(f"{s.out_csv_path}{s.dbtable}.csv")
+        # Step . Show Tables
+        os.makedirs(s.out_csv_path, exist_ok=True)      
+        table_show = self.call_fetch_table(                   
+            table_name=str(s.dbtable),
+            out_path=str(f"{s.out_csv_path}{s.dbtable}.csv"),
         )
+
+        # 
+
+
+
+
+        return table_show
 
     
 #/////////////////////////////////////
@@ -36,7 +44,7 @@ class PipelineFlow(PipelineBase):
 #/////////////////////////////////////
 
 
-    # Step . Clean folder
+    # Step . Show Tables
     def call_fetch_table(self, table_name, out_path):
 
         s = self.config

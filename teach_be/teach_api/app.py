@@ -145,5 +145,47 @@ def create_activity():
     return jsonify(result), 201
 
 
+
+# //////////////////////////////////////////
+
+from sqlalchemy import inspect
+
+# columns that must never be sent out, in any table
+SENSITIVE_COLUMNS = {"password_hash"}
+
+
+# The tables that really exist in the database right now
+def list_tables():
+    return sorted(inspect(engine).get_table_names())
+
+
+@app.get("/tables")
+def db_tables():
+    return jsonify(list_tables())
+
+
+@app.get("/tables/<name>")
+def db_table(name):
+
+    # Table names cannot be passed as :parameters, so check the name against the real list
+    if name not in list_tables():
+        return jsonify({"error": f"Table '{name}' not found"}), 404
+
+    # Every column of the table except the sensitive ones
+    columns = [
+        c["name"] for c in inspect(engine).get_columns(name)
+        if c["name"] not in SENSITIVE_COLUMNS
+    ]
+
+    # quote() protects names that need it (capitals, spaces, reserved words)
+    quote = engine.dialect.identifier_preparer.quote
+    sql = f"SELECT {', '.join(quote(c) for c in columns)} FROM {quote(name)}"
+
+    with engine.connect() as conn:
+        rows = conn.execute(text(sql)).mappings().all()
+    return jsonify([dict(r) for r in rows])
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
